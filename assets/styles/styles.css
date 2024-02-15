@@ -51,9 +51,9 @@ blockquote, q {
 
 :root {
     --grid: 15px;
-    --container-w: calc(var(--grid)*20);
+    --container-w: calc(var(--grid)*16);
     --container-w-center: calc( 50% - (var(--container-w)/2) );
-    --container-h: calc(var(--grid)*10);
+    --container-h: calc(var(--grid)*8);
 
     --img-h: calc( var(--container-h) - (var(--pad-top)*2 + var(--border)*2) );
 
@@ -61,43 +61,64 @@ blockquote, q {
 
 
 
-    --pad-top: 20px;
-    --pad-side: 20px;
+    --pad-top: 10px;
+    --pad-side: 10px;
+
     --c-bg: white;
+    --c-cross: #222;
+}
+
+body {
+    font-family: "Input Sans", monospace;
+
+    background-color: white;
+
+    background: 
+    radial-gradient(circle, transparent 15%, var(--c-bg) 16%),
+    linear-gradient(0deg, transparent 48%, var(--c-cross) 49%, var(--c-cross) 51%, transparent 52%),
+    linear-gradient(90deg, transparent 48%, var(--c-cross) 49%, var(--c-cross) 51%, transparent 52%);
+    background-size: var(--grid) var(--grid); 
+    background-position: top center;
+}
+
+
+h1 {
+    font-size: 1rem;
+}
+
+h2 {
+    font-size: .7rem;
+}
+
+b1 {
+    font-size: .5rem;
 }
 
 @media (min-width: 650px) {
     :root {
-        --grid: 20px;
+        --grid: 25px;
+        --pad-top: 20px;
+        --pad-side: 20px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: .9rem;
+    }
+
+    b1 {
+        font-size: .7rem;
     }
 }
 
 @media (min-width: 850px) {
     :root {
-        --grid: 30px;
+        --grid: 40px;
     }
 }
-
-body {
-    font-family: "Input Sans", monospace;
-    background-color: white;
-    background-size: var(--grid) var(--grid); 
-    background-image: radial-gradient(circle, transparent 1px, transparent 2px), url(../images/plus.png);
-    background-position: top center;
-}
-
-h1 {
-    font-size: 1.5rem;
-}
-
-h2 {
-    font-size: 1.2rem;
-}
-
-b1 {
-    font-size: 1rem;
-}
-
 
 
 /* BODY */
@@ -124,30 +145,60 @@ b1 {
 
 .container-1 {
     left: var(--container-w-center);
-
-    top: calc(var(--grid)*3);
+    
+    top: calc( var(--grid)/2 + var(--grid)*2 );
     height: calc(var(--grid)*4);
 }
 
 .container-2 {
-    left: calc( var(--container-w-center) - (var(--grid)*5) );
-
-    top: calc(var(--grid)*4);
+    left: var(--container-w-center);
+    
+    top: calc( var(--grid)/2 + var(--grid)*4 );
     height: var(--container-h);
 }
 
 .container-3 {
-    left: calc( var(--container-w-center) + (var(--grid)*8) );
-
-    top: calc(var(--grid)*6);
+    left: var(--container-w-center);
+    
+    top: calc( var(--grid)/2 + var(--grid)*5 );
     height: var(--container-h);
 }
 
 .container-4 {
-    left: calc( var(--container-w-center) - (var(--grid)*15) );
-
-    top: calc(var(--grid)*1);
+    left: var(--container-w-center);
+    
+    top: calc( var(--grid)/2 + var(--grid)*6 );
     height: var(--container-h);
+}
+
+@media (min-width: 850px) {
+    .container-1 {
+        left: var(--container-w-center);
+    
+        top: calc( var(--grid)/2 + var(--grid)*2 );
+        height: calc(var(--grid)*3);
+    }
+
+    .container-2 {
+        left: calc( var(--container-w-center) - (var(--grid)*5) );
+    
+        top: calc( var(--grid)/2 + var(--grid)*3 );
+        height: var(--container-h);
+    }
+
+    .container-3 {
+        left: calc( var(--container-w-center) + (var(--grid)*8) );
+    
+        top: calc( var(--grid)/2 + var(--grid)*4 );
+        height: var(--container-h);
+    } 
+
+    .container-4 {
+        left: calc( var(--container-w-center) - (var(--grid)*10) );
+    
+        top: calc( var(--grid)/2 - var(--grid)*1 );
+        height: var(--container-h);
+    }
 }
 
 /* CONTAINER */
