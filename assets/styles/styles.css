@@ -28,6 +28,11 @@ ol,ul,li {
     padding-left: 0;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 /* tables still need 'cellspacing="0"' in the markup */
 table {
 	border-collapse: separate;
@@ -49,23 +54,25 @@ blockquote, q {
 
 /* BODY */
 
-:root {
+:root {    
+    /* transitions */
+    --def-duraton: 0.5s;
+
+    /* bg */
     --grid: 15px;
+    --c-bg: white;
+    --c-cross: #222;
+
+    /* container */
     --container-w: calc(var(--grid)*16);
     --container-w-center: calc( 50% - (var(--container-w)/2) );
-    --container-h: calc(var(--grid)*8);
-
-    --img-h: calc( var(--container-h) - (var(--pad-top)*2 + var(--border)*2) );
-
     --border: 2px;
-
-
-
     --pad-top: 10px;
     --pad-side: 10px;
 
-    --c-bg: white;
-    --c-cross: #222;
+    /* projects */
+    --container-proj-h: calc(var(--grid)*8);
+    --img-h: calc( var(--container-proj-h) - (var(--pad-top)*2 + var(--border)*2) );
 }
 
 body {
@@ -116,6 +123,35 @@ b1 {
 
 /* BODY */
 
+/* ANIMATIONS */
+
+/* rotate */
+._rotate {
+	display: inline-block;
+    transition-duration: var(--def-duraton);
+	transition-property: transform;
+	
+	&:hover {	
+		transform: rotate(5deg);
+        text-decoration: underline;
+	}
+}
+
+/* skew */
+._skew {
+	display: inline-block;
+    transition-duration: var(--def-duraton);
+	transition-property: transform;
+	transform-origin: 0 100%;
+
+	&:hover {
+		transform: skew(-20deg);
+        text-decoration: underline;
+	}
+}
+
+/* ANIMATIONS */
+
 /* CONTAINER */
 
 #Body {
@@ -154,6 +190,39 @@ b1 {
 
 /* HEADER */
 
+/* LANG */
+
+.lang-content {
+    display: flex;
+    justify-content: center;    
+}
+
+.lang-container {
+    width: calc(var(--grid)*6);
+
+    left: calc( var(--container-w-center) - (var(--grid)*2) );
+    
+    top: calc( var(--grid)/2 + var(--grid)*3 );
+    height: calc(var(--grid)*3);
+}
+
+@media (min-width: 650px) {
+    .lang-container {
+        width: calc(var(--grid)*5);
+    }
+}
+
+@media (min-width: 850px) {
+    .lang-container {    
+        left: calc( var(--container-w-center) + (var(--grid)*19 ) );
+        
+        top: calc( var(--grid)/2 + var(--grid)*1 );
+        height: calc(var(--grid)*3);
+    }
+}
+
+/* LANG */
+
 /* PROJECTS */
 
 .proj-content {
@@ -177,43 +246,43 @@ b1 {
     left: var(--container-w-center);
     
     top: calc( var(--grid)/2 + var(--grid)*4 );
-    height: var(--container-h);
+    height: var(--container-proj-h);
 }
 
 .proj-container-2 {
     left: var(--container-w-center);
     
     top: calc( var(--grid)/2 + var(--grid)*5 );
-    height: var(--container-h);
+    height: var(--container-proj-h);
 }
 
 .proj-container-3 {
     left: var(--container-w-center);
     
     top: calc( var(--grid)/2 + var(--grid)*6 );
-    height: var(--container-h);
+    height: var(--container-proj-h);
 }
 
 @media (min-width: 850px) {
     .proj-container-1 {
         left: calc( var(--container-w-center) - (var(--grid)*5) );
     
-        top: calc( var(--grid)/2 + var(--grid)*4 );
-        height: var(--container-h);
+        top: calc( var(--grid)/2 + var(--grid)*2 );
+        height: var(--container-proj-h);
     }
 
     .proj-container-2 {
         left: calc( var(--container-w-center) - (var(--grid)*8) );
     
-        top: calc( var(--grid)/2 + var(--grid)*5 );
-        height: var(--container-h);
+        top: calc( var(--grid)/2 + var(--grid)*3 );
+        height: var(--container-proj-h);
     } 
 
     .proj-container-3 {
         left: calc( var(--container-w-center) + (var(--grid)*5) );
     
-        top: calc( var(--grid)/2 + var(--grid)*6);
-        height: var(--container-h);
+        top: calc( var(--grid)/2 + var(--grid)*4);
+        height: var(--container-proj-h);
     }
 }
 
@@ -221,6 +290,19 @@ b1 {
 
 /* CONTACT */
 
+.contact-container-1 {
+    left: var(--container-w-center);
+    
+    top: calc( var(--grid)/2 + var(--grid)*4 );
+    height: calc(var(--grid)*20);
+}
 
+@media (min-width: 850px) {
+    .contact-container-1 {
+        left: calc( var(--container-w-center) + (var(--grid)*2) );
+    
+        top: calc( var(--grid)/2 + var(--grid)*2 );
+    }
+}
 
 /* CONTACT */
