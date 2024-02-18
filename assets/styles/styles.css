@@ -200,7 +200,9 @@ b1 {
 
 .lang-content {
     display: flex;
-    justify-content: center;    
+    align-items: center;
+    justify-content: center; 
+    height: calc((var(--grid)*3)/2);  
 }
 
 .lang-container {
@@ -214,7 +216,7 @@ b1 {
 
 @media (min-width: 650px) {
     .lang-container {
-        width: calc(var(--grid)*5);
+        width: calc(var(--grid)*4);
     }
 }
 
@@ -223,7 +225,6 @@ b1 {
         left: calc( var(--container-w-center) + (var(--grid)*19 ) );
         
         top: calc( var(--grid)/2 + var(--grid)*1 );
-        height: calc(var(--grid)*3);
     }
 }
 
@@ -322,7 +323,7 @@ b1 {
 /* CONTACT */
 
 .contact-container-1 {
-    width: calc(var(--grid)*16);
+    width: calc(var(--grid)*17);
 
     left: calc( var(--container-w-center) + (var(--grid)*1) );
     
